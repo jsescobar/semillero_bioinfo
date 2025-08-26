@@ -1,0 +1,35 @@
+*Human lactase (LCT) sequence comparison with other primates*
+Juan S. Escobar 2025
+
+1. Create a local database
+
+Easy way: use the human LCT sequence and make a BLASTn at NCBI. Manually download the first 100 sequences (as fasta)
+
+Create a local database:
+$ makeblastdb -in seqdump.txt -dbtype nucl -parse_seqids -title "mis_nucl" -out mis_nucl
+
+Alternatively:
+$ update_blastdb.pl --decompress nt
+$ blastp -query my_seq.fna -db nt -out hits.txt
+
+
+2. Identify sequences of interest and extract them
+
+$ blastdbcmd \
+	-db mis_nucl \
+	-entry "NM_002299.4, XM_016949753.4, XM_019022146.4, XM_054477882.2, XM_032145557.2, XM_015110009.2, XM_010367276.2, XM_025405053.1, XM_003909172.5, XM_011970274.1" \
+	-out LCT_spp.fna
+
+
+3. Change the sequence names (optional)
+vi LCT_spp.fna
+$ :%s/>.*PREDICTED: />/
+
+
+4. Install a program for sequence alignment (e.g., muscle)
+$ sudo apt-get install muscle
+
+
+5. Align sequences using command line
+$ muscle -align LCT_spp.fna -output LCT_spp.aln
+
