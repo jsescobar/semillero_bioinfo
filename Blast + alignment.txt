@@ -34,10 +34,12 @@ $ blastdbcmd \
 vi LCT_spp.fna
 $ :%s/>.*PREDICTED: />/
 
-5. Install a program for sequence alignment (e.g., muscle)
+5. Install a program for sequence alignment (e.g., muscle or clustalw)
 $ sudo apt-get install muscle
+$ sudo apt-get install clustalw
 
 6. Align sequences using command line
 $ muscle -align LCT_spp.fna -output LCT_spp.aln
+$ clustalw
 
 
