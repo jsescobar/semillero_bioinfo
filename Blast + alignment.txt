@@ -1,35 +1,43 @@
 *Human lactase (LCT) sequence comparison with other primates*
 Juan S. Escobar 2025
 
-1. Create a local database
+1. Install BLAST+:
+# conda
+$ conda install -c bioconda blast
 
-Easy way: use the human LCT sequence and make a BLASTn at NCBI. Manually download the first 100 sequences (as fasta)
+# Ubuntu/Debian
+$ sudo apt-get update
+$ sudo apt-get install ncbi-blast+
 
-Create a local database:
+2. Create a local database:
+
+Easy way:
+* Use the human LCT sequence (e.g. NM_002299.4) and make a BLASTn at NCBI. 
+* Manually download the first 100 sequences (as fasta)
+* Create a local database:
 $ makeblastdb -in seqdump.txt -dbtype nucl -parse_seqids -title "mis_nucl" -out mis_nucl
 
 Alternatively:
+* Download a NCBI reference database (e.g., nt). PA: this might take a lot of place in your drive
 $ update_blastdb.pl --decompress nt
+* Make your BLAST
 $ blastp -query my_seq.fna -db nt -out hits.txt
 
-
-2. Identify sequences of interest and extract them
+3. Identify sequences of interest and extract them
 
 $ blastdbcmd \
 	-db mis_nucl \
 	-entry "NM_002299.4, XM_016949753.4, XM_019022146.4, XM_054477882.2, XM_032145557.2, XM_015110009.2, XM_010367276.2, XM_025405053.1, XM_003909172.5, XM_011970274.1" \
 	-out LCT_spp.fna
 
-
-3. Change the sequence names (optional)
+4. Change sequence names (optional)
 vi LCT_spp.fna
 $ :%s/>.*PREDICTED: />/
 
-
-4. Install a program for sequence alignment (e.g., muscle)
+5. Install a program for sequence alignment (e.g., muscle)
 $ sudo apt-get install muscle
 
-
-5. Align sequences using command line
+6. Align sequences using command line
 $ muscle -align LCT_spp.fna -output LCT_spp.aln
+
 
