@@ -45,19 +45,16 @@ $ clustalw
 ***
 *Alignment of variable sequences*
 
-For this exercise, we take some sequences of the following paper: Correa et al. 2011 (doi:10.1016/j.meegid.2011.09.003).
+For this exercise, we take some sequences of the following paper: Correa et al. 2010 (doi:10.1186/1471-2148-10-381).
 
 Species				ITS-1		ITS-2
-Galba neotropica	AM412228	AM412225
-Galba cubensis		JN614427	JN614464
-					JN614425	JN614462
-					HQ283253	HQ283264
-					JN614422	JN614463
-					JN614424 	JN614460
-					JN614423	JN614459
-Galba viatrix		HQ28325		HQ283265
-					JN614428	JN614465
 Physa acuta			HQ283259	HQ283272
+Radix peregra		HQ283271	U82074
+Radix natalensis	HQ283270	HQ283242
+Lymnaea viatrix		HQ283265	HQ283239
+Lymnaea cubensis	HQ283264	FN182204
+Lymnaea cousini		HQ283266	HQ283237
+Lymnaea sp. COL		HQ283263	HQ283235
 
 1. Install the entrez suite to do this using command line
 $ sudo apt install ncbi-entrez-direct
@@ -70,3 +67,4 @@ $ efetch -db nuccore -id AM412225,JN614464,JN614462,HQ283264,JN614463,JN614460,,
 3. Align the sequences
 $ muscle -align its1.fasta -output its1.aln
 $ muscle -align its2.fasta -output its2.aln
+
