@@ -60,11 +60,14 @@ Lymnaea sp. COL		HQ283263	HQ283235
 $ sudo apt install ncbi-entrez-direct
 
 2. Extract the actual sequences in fasta format (one by one, or all in one)
-$ efetch -db nuccore -id AM412228 -format fasta > AM412228.fasta
-$ efetch -db nuccore -id AM412228,JN614427,JN614425,HQ283253,JN614422,JN614424,JN614423,HQ28325,JN614428,HQ283259 -format fasta > its1.fasta
-$ efetch -db nuccore -id AM412225,JN614464,JN614462,HQ283264,JN614463,JN614460,,JN614459,HQ283265,JN614465,HQ283272 -format fasta > its2.fasta
+$ efetch -db nuccore -id HQ283259 -format fasta > HQ283259.fasta
+$ efetch -db nuccore -id HQ283259,HQ283271,HQ283270,HQ283265,HQ283264,HQ283266,HQ283263 -format fasta > its1.fasta
+$ efetch -db nuccore -id HQ283272,U82074,HQ283242,HQ283239,FN182204,HQ283237,HQ283235 -format fasta > its2.fasta
 
-3. Align the sequences
+3. Change the species name in the fasta using command line
+
+4. Align the sequences
 $ muscle -align its1.fasta -output its1.aln
 $ muscle -align its2.fasta -output its2.aln
+
 
