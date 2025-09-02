@@ -59,7 +59,14 @@ Galba viatrix		HQ28325		HQ283265
 					JN614428	JN614465
 Physa acuta			HQ283259	HQ283272
 
-1. Let's extract the actual sequences in fasta format
-
+1. Install the entrez suite to do this using command line
 $ sudo apt install ncbi-entrez-direct
-$ 
+
+2. Extract the actual sequences in fasta format (one by one, or all in one)
+$ efetch -db nuccore -id AM412228 -format fasta > AM412228.fasta
+$ efetch -db nuccore -id AM412228,JN614427,JN614425,HQ283253,JN614422,JN614424,JN614423,HQ28325,JN614428,HQ283259 -format fasta > its1.fasta
+$ efetch -db nuccore -id AM412225,JN614464,JN614462,HQ283264,JN614463,JN614460,,JN614459,HQ283265,JN614465,HQ283272 -format fasta > its2.fasta
+
+3. Align the sequences
+$ muscle -align its1.fasta -output its1.aln
+$ muscle -align its2.fasta -output its2.aln
