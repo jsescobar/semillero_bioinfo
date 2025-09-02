@@ -66,8 +66,11 @@ $ efetch -db nuccore -id HQ283272,U82074,HQ283242,HQ283239,FN182204,HQ283237,HQ2
 
 3. Change the species name in the fasta using command line
 
-4. Align the sequences
+4. Align the sequences using muscle (or ClustalW or whatever you prefer)
 $ muscle -align its1.fasta -output its1.aln
 $ muscle -align its2.fasta -output its2.aln
 
-
+5. Align the sequences using Prank
+$ sudo apt install prank
+$ prank -d=its1.fasta -o=its1.prank.aln
+$ prank -d=its2.fasta -o=its2.prank.aln
