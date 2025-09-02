@@ -42,4 +42,24 @@ $ sudo apt-get install clustalw
 $ muscle -align LCT_spp.fna -output LCT_spp.aln
 $ clustalw
 
+***
+*Alignment of variable sequences*
 
+For this exercise, we take some sequences of the following paper: Correa et al. 2011 (doi:10.1016/j.meegid.2011.09.003).
+
+Species				ITS-1		ITS-2
+Galba neotropica	AM412228	AM412225
+Galba cubensis		JN614427	JN614464
+					JN614425	JN614462
+					HQ283253	HQ283264
+					JN614422	JN614463
+					JN614424 	JN614460
+					JN614423	JN614459
+Galba viatrix		HQ28325		HQ283265
+					JN614428	JN614465
+Physa acuta			HQ283259	HQ283272
+
+1. Let's extract the actual sequences in fasta format
+
+$ sudo apt install ncbi-entrez-direct
+$ 
