@@ -89,4 +89,11 @@ $ fasterq-dump SRR8540901 --fasta --split-files
 https://github.com/mothur/mothur/releases
 $ make.contigs(ffasta=SRR8540901_1.fasta, rfasta=SRR8540901_2.fasta)
 
-4. Edit the fasta file using vi and align it
+4. Edit the fasta file using vi and align it (clustalW, muscle, prank)
+$ prank -d=SRR8540901.fasta -o=SRR8540901.aln
+
+5. See if the use of a reference alignment incorporating the RNA secondary structure improves the alignment
+Do this using SILVA
+
+Within mothur:
+$ align.seqs(fasta=SRR8540901.fasta, reference=silva.bacteria.pcr.fasta, flip=t)
