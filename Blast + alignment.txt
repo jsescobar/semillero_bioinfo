@@ -74,3 +74,19 @@ $ muscle -align its2.fasta -output its2.aln
 $ sudo apt install prank
 $ prank -d=its1.fasta -o=its1.prank.aln
 $ prank -d=its2.fasta -o=its2.prank.aln
+
+--
+*A new example, with more conserved sequences: 16S rRNA*
+From Caro-Gómez et al. 2019 (doi:10.3390/nu11030497)
+
+1. Install the SRA toolkit
+https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit
+
+2. Download DNA sequences (of one mouse)
+$ fasterq-dump SRR8540901 --fasta --split-files
+
+3. Install and use Mothur to put read1 and read2 together
+https://github.com/mothur/mothur/releases
+$ make.contigs(ffasta=SRR8540901_1.fasta, rfasta=SRR8540901_2.fasta)
+
+4. Edit the fasta file using vi and align it
