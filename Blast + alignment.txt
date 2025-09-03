@@ -97,3 +97,4 @@ Do this using SILVA
 
 Within mothur:
 $ align.seqs(fasta=SRR8540901.fasta, reference=silva.bacteria.pcr.fasta, flip=t)
+$ filter.seqs(fasta=SRR8540901.align, vertical=T, trump=.)
